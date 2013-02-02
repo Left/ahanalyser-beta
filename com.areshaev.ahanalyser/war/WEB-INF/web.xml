@@ -7,9 +7,18 @@
 		<servlet-name>GetData</servlet-name>
 		<servlet-class>com.areshaev.ahanalyser.GetData</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>TestDataProcessing</servlet-name>
+		<servlet-class>com.areshaev.ahanalyser.TestDataProcessing</servlet-class>
+	</servlet>	
+	
 	<servlet-mapping>
 		<servlet-name>PostData</servlet-name>
 		<url-pattern>/post</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TestDataProcessing</servlet-name>
+		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>GetData</servlet-name>
