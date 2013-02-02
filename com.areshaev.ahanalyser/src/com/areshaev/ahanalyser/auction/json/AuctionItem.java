@@ -1,7 +1,7 @@
 package com.areshaev.ahanalyser.auction.json;
 
+import com.google.common.base.Function;
 import com.google.common.base.Objects;
-import com.google.common.collect.Ordering;
 import com.google.common.primitives.Longs;
 
 
@@ -9,19 +9,21 @@ import com.google.common.primitives.Longs;
  * Single auction item
  */
 public class AuctionItem implements Comparable<AuctionItem> {
-	public static Ordering<AuctionItem> BY_BID = new Ordering<AuctionItem>() {
-		@Override
-		public int compare(AuctionItem left, AuctionItem right) {
-			return Longs.compare(left.bid, right.bid);
-		}		
-	};
-
-	public static Ordering<AuctionItem> BY_BUYOUT = new Ordering<AuctionItem>() {
-		@Override
-		public int compare(AuctionItem left, AuctionItem right) {
-			return Longs.compare(left.buyout, right.buyout);
-		}		
-	};
+	
+	public enum GetPrices implements Function<AuctionItem, Long> {
+		BID {
+			@Override
+			public Long apply(AuctionItem input) {
+				return input.getBid();
+			}			
+		},
+		BUYOUT {
+			@Override
+			public Long apply(AuctionItem input) {
+				return input.getBuyout();
+			}
+		};
+	}
 
 	private long auc;
 	private int item;
