@@ -14,6 +14,7 @@ import com.google.common.io.ByteStreams;
 public class PureHttpTest {
 	public static void main(String[] args) {
 		try {
+			//test AReshayev
 			URL url = new URL("https://ahanalyser.appspot.com/post");
 			URLConnection openConnection = url.openConnection();
 			openConnection.setDoOutput(true);
